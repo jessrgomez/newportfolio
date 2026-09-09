@@ -13,24 +13,7 @@
     </div>
 
     <div class="developer-figure">
-      <svg class="developer-svg" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="140" cy="195" rx="75" ry="12" fill="#1a2234" stroke="#334155" stroke-width="2"/>
-        <rect x="65" y="120" width="150" height="75" rx="8" fill="#1a2234" stroke="#334155" stroke-width="2"/>
-        <rect x="75" y="95" width="130" height="85" rx="4" fill="#0f172a"/>
-        <rect x="80" y="100" width="120" height="75" rx="2" fill="#22d3ee" opacity="0.15"/>
-        <line x1="90" y1="115" x2="140" y2="115" stroke="#22d3ee" stroke-width="2" opacity="0.6"/>
-        <line x1="90" y1="130" x2="160" y2="130" stroke="#22d3ee" stroke-width="2" opacity="0.4"/>
-        <line x1="90" y1="145" x2="130" y2="145" stroke="#22d3ee" stroke-width="2" opacity="0.5"/>
-        <circle cx="140" cy="55" r="28" fill="#334155"/>
-        <circle cx="140" cy="55" r="24" fill="#475569"/>
-        <rect x="115" y="50" width="25" height="12" rx="4" fill="none" stroke="#64748b" stroke-width="2"/>
-        <rect x="140" y="50" width="25" height="12" rx="4" fill="none" stroke="#64748b" stroke-width="2"/>
-        <line x1="140" y1="56" x2="140" y2="58" stroke="#64748b" stroke-width="1"/>
-        <path d="M100 85 Q140 95 180 85 L175 160 Q140 170 105 160 Z" fill="#475569" stroke="#334155" stroke-width="1"/>
-        <path d="M105 95 L125 130 L145 125" fill="none" stroke="#64748b" stroke-width="8" stroke-linecap="round"/>
-        <path d="M175 95 L155 130 L135 125" fill="none" stroke="#64748b" stroke-width="8" stroke-linecap="round"/>
-        <rect x="95" y="125" width="90" height="8" rx="2" fill="#334155" opacity="0.6"/>
-      </svg>
+      <canvas ref="canvasEl" class="developer-canvas" aria-hidden="true"></canvas>
     </div>
 
     <div class="developer-glow" aria-hidden="true"></div>
@@ -38,7 +21,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const props = defineProps({
   stack: {
@@ -98,6 +81,208 @@ const displayStack = computed(() => {
     }
   })
 })
+
+const canvasEl = ref(null)
+let cleanup = null
+
+onMounted(async () => {
+  const THREE = await import('three')
+  if (!canvasEl.value) return // unmounted before the chunk loaded
+
+  const readAccentColor = () => {
+    const value = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()
+    return new THREE.Color(value || '#22d3ee')
+  }
+
+  const canvas = canvasEl.value
+  const parent = canvas.parentElement
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  // Resizing dev tools' device emulation (or other GPU hiccups) can trigger a
+  // WebGL "context lost" event, which otherwise leaves the canvas permanently
+  // blank. `teardown` disposes the current scene/renderer; `buildScene` (re-)
+  // creates everything from scratch, so `webglcontextrestored` can fully revive it.
+  let teardown = null
+
+  const buildScene = () => {
+    teardown?.()
+
+    const scene = new THREE.Scene()
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100)
+    camera.position.set(0, 0.6, 6.5)
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+    let accent = readAccentColor()
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.7)
+    scene.add(ambient)
+    const keyLight = new THREE.DirectionalLight(0xffffff, 0.7)
+    keyLight.position.set(3, 4, 5)
+    scene.add(keyLight)
+    const accentLight = new THREE.PointLight(accent, 2, 12)
+    accentLight.position.set(-2, 1.2, 2.5)
+    scene.add(accentLight)
+
+    const rig = new THREE.Group()
+    scene.add(rig)
+
+    // Laptop base + keyboard deck
+    const baseMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.4, roughness: 0.5 })
+    const base = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.14, 1.6), baseMat)
+    base.position.y = -0.55
+    rig.add(base)
+    const deck = new THREE.Mesh(
+      new THREE.BoxGeometry(2.1, 0.02, 1.3),
+      new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.3, roughness: 0.6 })
+    )
+    deck.position.set(0, -0.47, 0.05)
+    rig.add(deck)
+
+    // Hinged screen
+    const screenHinge = new THREE.Group()
+    screenHinge.position.set(0, -0.48, -0.78)
+    screenHinge.rotation.x = -0.35
+    rig.add(screenHinge)
+
+    const screenFrame = new THREE.Mesh(
+      new THREE.BoxGeometry(2.4, 1.5, 0.08),
+      new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.3, roughness: 0.6 })
+    )
+    screenFrame.position.y = 0.76
+    screenHinge.add(screenFrame)
+
+    const screenLit = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.15, 1.28),
+      new THREE.MeshBasicMaterial({ color: 0x0f172a })
+    )
+    screenLit.position.set(0, 0.76, 0.045)
+    screenHinge.add(screenLit)
+
+    const codeLineColors = [accent, 0xc084fc, 0x86efac, 0xfacc15]
+    const codeLines = []
+    for (let i = 0; i < 6; i++) {
+      const width = 0.55 + Math.random() * 0.9
+      const mat = new THREE.MeshBasicMaterial({
+        color: codeLineColors[i % codeLineColors.length],
+        transparent: true,
+        opacity: 0.85
+      })
+      const line = new THREE.Mesh(new THREE.PlaneGeometry(width, 0.07), mat)
+      line.position.set(-1.05 + width / 2, 1.18 - i * 0.19, 0.05)
+      line.userData.baseOpacity = 0.4 + Math.random() * 0.5
+      screenHinge.add(line)
+      codeLines.push(line)
+    }
+
+    // Ambient particles
+    const particleCount = 90
+    const positions = new Float32Array(particleCount * 3)
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 9
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 6
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 5 - 1
+    }
+    const particleGeometry = new THREE.BufferGeometry()
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+    const particleMaterial = new THREE.PointsMaterial({
+      color: accent,
+      size: 0.035,
+      transparent: true,
+      opacity: 0.55,
+      sizeAttenuation: true
+    })
+    const particles = new THREE.Points(particleGeometry, particleMaterial)
+    scene.add(particles)
+
+    let pointerX = 0
+    let pointerY = 0
+    const handlePointerMove = (event) => {
+      const rect = parent.getBoundingClientRect()
+      pointerX = ((event.clientX - rect.left) / rect.width - 0.5) * 2
+      pointerY = ((event.clientY - rect.top) / rect.height - 0.5) * 2
+    }
+    window.addEventListener('pointermove', handlePointerMove)
+
+    const resize = () => {
+      const width = parent.clientWidth
+      const height = parent.clientHeight
+      if (!width || !height) return
+      camera.aspect = width / height
+      camera.updateProjectionMatrix()
+      renderer.setSize(width, height)
+    }
+    resize()
+    const resizeObserver = new ResizeObserver(resize)
+    resizeObserver.observe(parent)
+
+    const themeObserver = new MutationObserver(() => {
+      accent = readAccentColor()
+      accentLight.color = accent
+      particleMaterial.color = accent
+      codeLines[0].material.color = accent
+    })
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+
+    const clock = new THREE.Clock()
+    let frameId
+
+    const renderStaticFrame = () => renderer.render(scene, camera)
+
+    const animate = () => {
+      const elapsed = clock.getElapsedTime()
+      rig.rotation.y = Math.sin(elapsed * 0.3) * 0.25 + pointerX * 0.35
+      rig.rotation.x = pointerY * 0.15
+      rig.position.y = Math.sin(elapsed * 0.8) * 0.08
+      codeLines.forEach((line, i) => {
+        line.material.opacity = line.userData.baseOpacity + Math.sin(elapsed * 1.5 + i) * 0.15
+      })
+      particles.rotation.y = elapsed * 0.03
+      renderer.render(scene, camera)
+      frameId = requestAnimationFrame(animate)
+    }
+
+    if (reduceMotion) {
+      renderStaticFrame()
+    } else {
+      animate()
+    }
+
+    teardown = () => {
+      if (frameId) cancelAnimationFrame(frameId)
+      window.removeEventListener('pointermove', handlePointerMove)
+      resizeObserver.disconnect()
+      themeObserver.disconnect()
+      renderer.dispose()
+      particleGeometry.dispose()
+      particleMaterial.dispose()
+    }
+  }
+
+  const handleContextLost = (event) => {
+    event.preventDefault()
+    teardown?.()
+    teardown = null
+  }
+  const handleContextRestored = () => {
+    buildScene()
+  }
+  canvas.addEventListener('webglcontextlost', handleContextLost, false)
+  canvas.addEventListener('webglcontextrestored', handleContextRestored, false)
+
+  buildScene()
+
+  cleanup = () => {
+    teardown?.()
+    canvas.removeEventListener('webglcontextlost', handleContextLost)
+    canvas.removeEventListener('webglcontextrestored', handleContextRestored)
+  }
+})
+
+onBeforeUnmount(() => {
+  cleanup?.()
+})
 </script>
 
 <style scoped>
@@ -113,13 +298,16 @@ const displayStack = computed(() => {
 .developer-figure {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 320px;
+  height: 260px;
   animation: developerFloat 4s ease-in-out infinite;
 }
 
-.developer-svg {
+.developer-canvas {
+  display: block;
   width: 100%;
-  max-width: 280px;
-  height: auto;
+  height: 100%;
   filter: drop-shadow(0 10px 30px rgba(34, 211, 238, 0.15));
 }
 

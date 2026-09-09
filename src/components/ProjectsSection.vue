@@ -47,18 +47,6 @@ const resetTilt = (event) => {
   event.currentTarget.style.transform = ''
 }
 
-// CSS Grid drops out-of-flow (leaving) items from its track layout, so a plain
-// `position: absolute` leaves them stranded at the wrong spot. Pin each leaving
-// card to its exact last on-screen position (via `position: fixed`, set in CSS)
-// before Vue removes it from the grid, so it fades out where it actually was.
-const pinBeforeLeave = (el) => {
-  const rect = el.getBoundingClientRect()
-  el.style.left = `${rect.left}px`
-  el.style.top = `${rect.top}px`
-  el.style.width = `${rect.width}px`
-  el.style.height = `${rect.height}px`
-}
-
 const { target, isVisible } = useAnimateOnScroll()
 </script>
 
@@ -84,49 +72,51 @@ const { target, isVisible } = useAnimateOnScroll()
         {{ industry }}
       </button>
     </div>
-    <TransitionGroup name="project-list" tag="div" class="projects-grid" @before-leave="pinBeforeLeave">
-      <article
-        v-for="(project, i) in filteredProjects"
-        :key="project.title"
-        class="project-card"
-        @mousemove="tiltCard"
-        @mouseleave="resetTilt"
-      >
-        <button
-          v-if="project.images"
-          type="button"
-          class="project-thumb"
-          :aria-label="`View ${project.title} case study screenshots`"
-          @click="openCaseStudy(project)"
+    <Transition name="projects-fade" mode="out-in">
+      <div :key="activeIndustry" class="projects-grid">
+        <article
+          v-for="(project, i) in filteredProjects"
+          :key="project.title"
+          class="project-card"
+          @mousemove="tiltCard"
+          @mouseleave="resetTilt"
         >
-          <img :src="project.images[0]" :alt="`${project.title} screenshot`" loading="lazy" />
-          <span class="project-thumb-badge">🔍 View case study</span>
-        </button>
-        <div class="project-number">{{ String(i + 1).padStart(2, '0') }}</div>
-        <span class="project-industry" :class="{ 'project-industry--overlay': project.images }">{{ project.industries.join(' / ') }}</span>
-        <h3>{{ project.title }}</h3>
-        <p class="project-company">{{ project.company }}</p>
-        <p>{{ project.description }}</p>
-        <div class="project-tech">
-          <span v-for="tech in project.tech" :key="tech">{{ tech }}</span>
-        </div>
-        <button
-          class="project-details-toggle"
-          type="button"
-          :aria-expanded="expandedProject === project.title"
-          @click="toggleProject(project.title)"
-        >
-          {{ expandedProject === project.title ? 'Hide contribution' : 'View contribution' }}
-          <span aria-hidden="true">{{ expandedProject === project.title ? '−' : '+' }}</span>
-        </button>
-        <div v-if="expandedProject === project.title" class="project-details">
-          <p class="project-details-label">Key contribution</p>
-          <ul>
-            <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
-          </ul>
-        </div>
-      </article>
-    </TransitionGroup>
+          <button
+            v-if="project.images"
+            type="button"
+            class="project-thumb"
+            :aria-label="`View ${project.title} case study screenshots`"
+            @click="openCaseStudy(project)"
+          >
+            <img :src="project.images[0]" :alt="`${project.title} screenshot`" loading="lazy" />
+            <span class="project-thumb-badge">🔍 View case study</span>
+          </button>
+          <div class="project-number">{{ String(i + 1).padStart(2, '0') }}</div>
+          <span class="project-industry" :class="{ 'project-industry--overlay': project.images }">{{ project.industries.join(' / ') }}</span>
+          <h3>{{ project.title }}</h3>
+          <p class="project-company">{{ project.company }}</p>
+          <p>{{ project.description }}</p>
+          <div class="project-tech">
+            <span v-for="tech in project.tech" :key="tech">{{ tech }}</span>
+          </div>
+          <button
+            class="project-details-toggle"
+            type="button"
+            :aria-expanded="expandedProject === project.title"
+            @click="toggleProject(project.title)"
+          >
+            {{ expandedProject === project.title ? 'Hide contribution' : 'View contribution' }}
+            <span aria-hidden="true">{{ expandedProject === project.title ? '−' : '+' }}</span>
+          </button>
+          <div v-if="expandedProject === project.title" class="project-details">
+            <p class="project-details-label">Key contribution</p>
+            <ul>
+              <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </Transition>
     <ProjectModal :project="activeProject" @close="closeCaseStudy" />
   </section>
 </template>

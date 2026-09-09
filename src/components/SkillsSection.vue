@@ -4,11 +4,11 @@ import { useAnimateOnScroll } from '../composables/useAnimateOnScroll'
 const skillGroups = [
   {
     title: 'Frontend',
-    items: ['VueJS (Vue2 & Vue3)', 'ReactJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'BootstrapVue', 'TailwindCSS', 'Material UI', 'Highcharts', 'Storybook']
+    items: ['VueJS (Vue2 & Vue3)', 'ReactJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'BootstrapVue', 'TailwindCSS', 'Material UI', 'Highcharts', 'Storybook', 'WebSocket']
   },
   {
     title: 'Backend & Integration',
-    items: ['REST APIs', 'NodeJS', 'PHP', 'MySQL']
+    items: ['REST APIs', 'Axios', 'Pinia', 'TanStack Query', 'NodeJS', 'PHP', 'MySQL']
   },
   {
     title: 'Tools',

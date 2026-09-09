@@ -1322,21 +1322,14 @@ textarea {
   color: var(--accent);
 }
 
-.project-list-enter-active,
-.project-list-leave-active {
-  transition: opacity 0.25s, transform 0.25s;
+.projects-fade-enter-active,
+.projects-fade-leave-active {
+  transition: opacity 0.2s ease;
 }
 
-.project-list-enter-from,
-.project-list-leave-to {
+.projects-fade-enter-from,
+.projects-fade-leave-to {
   opacity: 0;
-  transform: translateY(12px);
-}
-
-.project-list-leave-active {
-  position: fixed;
-  z-index: 1;
-  pointer-events: none;
 }
 
 /* Project screenshot thumbnail + case study modal */

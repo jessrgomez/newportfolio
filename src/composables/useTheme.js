@@ -16,6 +16,10 @@ const theme = ref(getInitialTheme())
 
 watchEffect(() => {
   document.documentElement.setAttribute('data-theme', theme.value)
+  const themeColorMeta = document.getElementById('theme-color-meta')
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute('content', theme.value === 'light' ? '#f8fafc' : '#0a0e17')
+  }
   try {
     localStorage.setItem(STORAGE_KEY, theme.value)
   } catch (e) {

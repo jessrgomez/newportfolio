@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Jessica R. Gomez — Frontend Developer with 8 years of experience in Vue.js, React, and REST API integrations across Gaming, Aviation, Travel, and Enterprise industries." />
-    <meta name="theme-color" content="#0a0e17" />
+    <meta name="theme-color" content="#0a0e17" id="theme-color-meta" />
     <script>
       (function () {
         try {
@@ -14,6 +14,10 @@
             ? stored
             : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
           document.documentElement.setAttribute('data-theme', theme);
+          var themeColorMeta = document.getElementById('theme-color-meta');
+          if (themeColorMeta) {
+            themeColorMeta.setAttribute('content', theme === 'light' ? '#f8fafc' : '#0a0e17');
+          }
         } catch (e) {
           document.documentElement.setAttribute('data-theme', 'dark');
         }
@@ -22,7 +26,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Jessica Gomez | Frontend Developer" />
     <meta property="og:description" content="Frontend Developer with 8 years of experience building reliable web products across Gaming, Aviation, Travel, and Enterprise." />
-    <meta property="og:url" content="https://jessrgomez.github.io/portfolio" />
+    <meta property="og:url" content="https://jessrgomez.github.io/newportfolio/" />
     <meta name="twitter:card" content="summary" />
     <title>Jessica Gomez | Frontend Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +34,107 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <div id="app-loader" class="app-loader" role="status" aria-live="polite" aria-label="Loading portfolio">
+      <div class="app-loader-window">
+        <div class="app-loader-header">
+          <span class="app-loader-dot"></span>
+          <span class="app-loader-dot"></span>
+          <span class="app-loader-dot"></span>
+          <span class="app-loader-title">jessica@portfolio:~</span>
+        </div>
+        <pre class="app-loader-body" id="app-loader-body"></pre>
+      </div>
+    </div>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      (function () {
+        var loader = document.getElementById('app-loader');
+        var body = document.getElementById('app-loader-body');
+        if (!loader || !body) return;
+
+        var lines = [
+          { prompt: '$ ', text: 'whoami' },
+          { prompt: '> ', text: 'Jessica Gomez — Frontend Developer' },
+          { prompt: '$ ', text: 'npm run build-portfolio' },
+          { prompt: '> ', text: 'Compiling something reliable...' }
+        ];
+
+        var startedAt = Date.now();
+        var minDisplay = 1400;
+        var ready = false;
+        var hidden = false;
+
+        function hideLoader() {
+          if (hidden) return;
+          hidden = true;
+          loader.classList.add('app-loader--hidden');
+          window.setTimeout(function () {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 500);
+        }
+
+        function tryHide() {
+          if (!ready) return;
+          var elapsed = Date.now() - startedAt;
+          window.setTimeout(hideLoader, Math.max(minDisplay - elapsed, 0));
+        }
+
+        document.addEventListener('app:ready', function () {
+          ready = true;
+          tryHide();
+        });
+
+        // Safety net in case the app never signals readiness.
+        window.setTimeout(function () {
+          ready = true;
+          tryHide();
+        }, 6000);
+
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) {
+          body.textContent = lines.map(function (l) { return l.prompt + l.text; }).join('\n');
+          return;
+        }
+
+        var lineIndex = 0;
+        var charIndex = 0;
+        var currentLineEl = null;
+
+        function typeNext() {
+          if (lineIndex >= lines.length) {
+            var cursor = document.createElement('span');
+            cursor.className = 'app-loader-cursor';
+            currentLineEl.appendChild(cursor);
+            return;
+          }
+          var line = lines[lineIndex];
+          if (!currentLineEl || charIndex === 0) {
+            currentLineEl = document.createElement('div');
+            currentLineEl.className = 'app-loader-line';
+            var promptEl = document.createElement('span');
+            promptEl.className = 'app-loader-prompt';
+            promptEl.textContent = line.prompt;
+            var textEl = document.createElement('span');
+            textEl.className = 'app-loader-text';
+            currentLineEl.appendChild(promptEl);
+            currentLineEl.appendChild(textEl);
+            body.appendChild(currentLineEl);
+          }
+          var textEl = currentLineEl.querySelector('.app-loader-text');
+          if (charIndex < line.text.length) {
+            textEl.textContent += line.text.charAt(charIndex);
+            charIndex += 1;
+            window.setTimeout(typeNext, 28);
+          } else {
+            lineIndex += 1;
+            charIndex = 0;
+            window.setTimeout(typeNext, 220);
+          }
+        }
+
+        typeNext();
+      })();
+    </script>
   </body>
 </html>

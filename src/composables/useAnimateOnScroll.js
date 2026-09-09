@@ -18,7 +18,7 @@ export function useAnimateOnScroll({ immediate = false } = {}) {
           if (entry.isIntersecting) isVisible.value = true
         })
       },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+      { threshold: 0.01, rootMargin: '0px 0px -50px 0px' }
     )
     observer.observe(target.value)
   })

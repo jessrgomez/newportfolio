@@ -12,15 +12,19 @@ const jobs = [
       'Delivered 20+ frontend enhancements across ArenaPlus Versions 1 and 2, improving user experience and system functionality.',
       "Shipped SABA Lite's Altenar API integration, connecting the sportsbook frontend to live odds and betting data.",
       'Implemented Loyalty Module and SOBOT message notification features for production users.',
+      'Currently building the Transactions module and Altenar sportsbook bet slip experience for ArenaPlus Retail App, a new Vue 3 + TypeScript platform, alongside the frontend team.',
       'Collaborated with 10+ cross-functional teammates across Product, QA, UI/UX, and Backend.',
       'Supported multiple production deployments with minimal downtime while resolving issues and optimizing performance.',
       'Collaborated with backend developers using Spring Boot and MySQL.'
     ],
     tech: [
       'VueJS',
+      'TypeScript',
       'JavaScript (ES6+)',
       'HTML5',
       'CSS3',
+      'Pinia',
+      'TailwindCSS',
       'REST APIs',
       'Git',
       'SourceTree',
@@ -28,7 +32,7 @@ const jobs = [
       'Cursor AI',
       'Claude AI'
     ],
-    projects: ['Maintenance of Back Office Systems', 'ArenaPlus v1', 'ArenaPlus v2', 'APv2 SABA Lite']
+    projects: ['Maintenance of Back Office Systems', 'ArenaPlus v1', 'ArenaPlus v2', 'APv2 SABA Lite', 'ArenaPlus Retail App']
   },
   {
     title: 'VueJS Developer',
@@ -64,7 +68,7 @@ const jobs = [
     title: 'Frontend Developer (Part-Time)',
     company: 'Sentravel Vietnam',
     logo: 'SV',
-    url: '#',
+    url: '',
     period: 'September 2020 – February 2022',
     bullets: [
       'Developed booking systems and reporting portals used by travel operations teams.',

@@ -1,6 +1,8 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import { useAnimateOnScroll } from '../composables/useAnimateOnScroll'
 import { scrollToSection } from '../utils/scroll'
+import { projects } from '../data/projects.js'
 
 const code = defineModel('code', { required: true })
 const initialCode = `const developer = {
@@ -11,6 +13,32 @@ const initialCode = `const developer = {
 };`
 
 const { target, isVisible } = useAnimateOnScroll({ immediate: true })
+
+const industryCount = new Set(projects.flatMap((project) => project.industries)).size
+
+const stats = [
+  { value: 8, label: 'Years of experience' },
+  { value: industryCount, label: 'Industries served' },
+  { value: projects.length, label: 'Projects featured' }
+]
+const displayValues = ref(stats.map(() => 0))
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+onMounted(() => {
+  if (prefersReducedMotion) {
+    displayValues.value = stats.map((stat) => stat.value)
+    return
+  }
+  const duration = 900
+  const start = performance.now()
+  const tick = (now) => {
+    const progress = Math.min((now - start) / duration, 1)
+    const eased = 1 - Math.pow(1 - progress, 3)
+    displayValues.value = stats.map((stat) => Math.round(stat.value * eased))
+    if (progress < 1) requestAnimationFrame(tick)
+  }
+  requestAnimationFrame(tick)
+})
 </script>
 
 <template>
@@ -33,17 +61,9 @@ const { target, isVisible } = useAnimateOnScroll({ immediate: true })
         <a href="#contact" class="btn btn-outline" @click.prevent="scrollToSection('contact')">Get in Touch</a>
       </div>
       <dl class="hero-stats" aria-label="Career highlights">
-        <div>
-          <dt>8</dt>
-          <dd>Years of experience</dd>
-        </div>
-        <div>
-          <dt>4</dt>
-          <dd>Industries served</dd>
-        </div>
-        <div>
-          <dt>9</dt>
-          <dd>Projects featured</dd>
+        <div v-for="(stat, i) in stats" :key="stat.label">
+          <dt>{{ displayValues[i] }}</dt>
+          <dd>{{ stat.label }}</dd>
         </div>
       </dl>
     </div>

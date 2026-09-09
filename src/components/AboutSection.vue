@@ -10,7 +10,7 @@ defineProps({
 })
 
 const aboutParagraphs = [
-  'Frontend Developer with 8 years of professional experience building responsive and scalable web applications across Aviation, Travel and Tours, Enterpriseand Gaming Industries.',
+  'Frontend Developer with 8 years of professional experience building responsive and scalable web applications across Aviation, Travel and Tours, Enterprise, and Gaming Industries.',
 
   'Experienced in delivering production-ready solutions while maintaining a strong focus on user experience, performance, and business objectives. Skilled in frontend development, API integrations, project coordination, and technical documentation throughout the software development lifecycle.',
 

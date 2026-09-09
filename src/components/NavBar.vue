@@ -1,6 +1,9 @@
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { scrollToSection } from '../utils/scroll'
+import { useTheme } from '../composables/useTheme'
+
+const { theme, toggleTheme } = useTheme()
 
 const activeSection = ref('hero')
 const menuOpen = ref(false)
@@ -76,30 +79,48 @@ onBeforeUnmount(() => {
       aria-label="Close navigation"
       @click="closeMenu"
     ></button>
-    <ul id="primary-menu" class="nav-links" :class="{ open: menuOpen }">
-      <li v-for="section in sections" :key="section.id">
-        <a
-          :href="`#${section.id}`"
-          :class="{ active: activeSection === section.id }"
-          :aria-current="activeSection === section.id ? 'page' : undefined"
-          @click.prevent="goToSection(section.id)"
+    <div class="nav-right">
+      <ul id="primary-menu" class="nav-links" :class="{ open: menuOpen }">
+        <li v-for="section in sections" :key="section.id">
+          <a
+            :href="`#${section.id}`"
+            :class="{ active: activeSection === section.id }"
+            :aria-current="activeSection === section.id ? 'page' : undefined"
+            @click.prevent="goToSection(section.id)"
+          >
+            {{ section.label }}
+          </a>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <button
+          class="theme-toggle"
+          type="button"
+          :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+          @click="toggleTheme"
         >
-          {{ section.label }}
-        </a>
-      </li>
-    </ul>
-    <button
-      class="nav-toggle"
-      :class="{ open: menuOpen }"
-      type="button"
-      aria-label="Toggle navigation menu"
-      aria-controls="primary-menu"
-      :aria-expanded="menuOpen"
-      @click="toggleMenu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+          <svg v-if="theme === 'dark'" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg v-else viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+        </button>
+        <button
+          class="nav-toggle"
+          :class="{ open: menuOpen }"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-controls="primary-menu"
+          :aria-expanded="menuOpen"
+          @click="toggleMenu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
   </nav>
 </template>

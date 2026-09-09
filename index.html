@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Jessica R. Gomez — Frontend Developer with 8 years of experience in Vue.js, React, and REST API integrations across Gaming, Aviation, Travel, and Enterprise industries." />
     <meta name="theme-color" content="#0a0e17" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var theme = stored === 'light' || stored === 'dark'
+            ? stored
+            : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Jessica Gomez | Frontend Developer" />
     <meta property="og:description" content="Frontend Developer with 8 years of experience building reliable web products across Gaming, Aviation, Travel, and Enterprise." />

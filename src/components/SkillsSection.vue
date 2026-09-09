@@ -12,7 +12,7 @@ const skillGroups = [
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Cursor AI', 'Claude AI', 'Postman', 'NPM', 'Vite','VS Code']
+    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Huawei Cloud', 'Swagger', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Cursor AI', 'Claude AI', 'Postman', 'NPM', 'Vite', 'VS Code', 'OMS', 'MMS Tickets', 'Icore BO', 'Player Portal', 'DIGIPLUS']
   },
   {
     title: 'Professional Skills',

@@ -458,15 +458,29 @@ textarea {
 }
 
 .hero-stats dt {
-  color: var(--text-primary);
+  color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: clamp(2.1rem, 4.5vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1;
+  transition: text-shadow 0.4s ease;
+}
+
+.hero-stat-value--done {
+  animation: statPop 0.5s ease-out;
+  text-shadow: 0 0 18px rgba(var(--accent-rgb), 0.55);
 }
 
 .hero-stats dd {
   color: var(--text-muted);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+@keyframes statPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  100% { transform: scale(1); }
 }
 
 .hero-visual {

@@ -22,6 +22,7 @@ const stats = [
   { value: projects.length, label: 'Projects featured' }
 ]
 const displayValues = ref(stats.map(() => 0))
+const statsDone = ref(false)
 
 onMounted(() => {
   const duration = 900
@@ -30,7 +31,11 @@ onMounted(() => {
     const progress = Math.min((now - start) / duration, 1)
     const eased = 1 - Math.pow(1 - progress, 3)
     displayValues.value = stats.map((stat) => Math.round(stat.value * eased))
-    if (progress < 1) requestAnimationFrame(tick)
+    if (progress < 1) {
+      requestAnimationFrame(tick)
+    } else {
+      statsDone.value = true
+    }
   }
   requestAnimationFrame(tick)
 })
@@ -57,7 +62,9 @@ onMounted(() => {
       </div>
       <dl class="hero-stats" aria-label="Career highlights">
         <div v-for="(stat, i) in stats" :key="stat.label">
-          <dt>{{ displayValues[i] }}</dt>
+          <dt class="hero-stat-value" :class="{ 'hero-stat-value--done': statsDone }" :style="{ animationDelay: `${i * 0.12}s` }">
+            {{ displayValues[i] }}
+          </dt>
           <dd>{{ stat.label }}</dd>
         </div>
       </dl>

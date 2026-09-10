@@ -124,7 +124,7 @@ export const projects = [
   },
   {
     title: 'Sapphire Website',
-    company: 'Dornier Technology Inc.',
+    company: 'Global JD Holdings Inc.',
     industries: ['Aviation'],
     description: 'Built a marketing website showcasing the Sapphire platform, its features, and its airline clients and partners.',
     tech: ['HTML5', 'CSS3', 'jQuery', 'JavaScript', 'Bootstrap'],
@@ -133,7 +133,7 @@ export const projects = [
   },
   {
     title: 'Aerostrategies Timesheet Portal',
-    company: 'Dornier Technology Inc.',
+    company: 'Global JD Holdings Inc.',
     industries: ['Aviation', 'Enterprise'],
     description: 'Built a timesheet portal with role-based access for admins, employees, and clients to track and manage task time and priorities.',
     tech: ['VueJS', 'BootstrapVue', 'HTML', 'CSS', 'NodeJS'],

@@ -64,7 +64,7 @@ const jobs = [
       'Successfully delivered scalable applications across aviation and transportation industries, including Aerovault and ERP System.'
     ],
     tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'BootstrapVue', 'REST APIs', 'Git'],
-    projects: ['Sapphire Portal', 'Sapphire IFE System', 'ERP System', 'Aerovault']
+    projects: ['Sapphire Portal', 'Sapphire IFE System', 'ERP System', 'Aerovault', 'Sapphire Website', 'Aerostrategies Timesheet Portal', 'Sapphire City Website']
   },
   {
     title: 'Frontend Developer (Part-Time)',

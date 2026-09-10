@@ -7,7 +7,6 @@ import aerovaultImg from '../assets/projects/aerovault.png'
 import sapphireWebsiteImg from '../assets/projects/sapphire-website.jpg'
 import aerostrategiesImg from '../assets/projects/aerostrategies-timesheet.jpg'
 import sapphireCityImg from '../assets/projects/sapphire-city.jpg'
-import gameDevImg from '../assets/projects/game-dev-project.jpg'
 
 export const projects = [
   {
@@ -136,14 +135,5 @@ export const projects = [
     tech: ['VueJS', 'Bootstrap', 'HTML', 'CSS', 'NodeJS'],
     highlights: ['Membership platform frontend for a blockchain real estate concept'],
     images: [sapphireCityImg]
-  },
-  {
-    title: 'Game Dev Project',
-    company: 'Holy Angel University (Class Project)',
-    industries: ['Gaming'],
-    description: 'Built a side-scrolling obstacle course game with a partner, implementing jumping, running, walking, and action mechanics from provided game assets.',
-    tech: ['Game Development'],
-    highlights: ['Character controller with jump, run, walk, and action states', 'Built in pairs as a class project'],
-    images: [gameDevImg]
   }
 ]

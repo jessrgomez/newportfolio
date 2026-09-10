@@ -78,7 +78,7 @@ const jobs = [
       'Designed dashboards and data visualizations with Highcharts to improve decision-making.',
       'Worked with designers and backend developers to refine usability and end-to-end workflows.'
     ],
-    tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Highcharts', 'Git'],
+    tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Highcharts', 'NodeJS', 'Swagger', 'Git', 'Figma'],
     projects: ['Sentravel Booking System', 'Sentravel Reporting System']
   },
   {

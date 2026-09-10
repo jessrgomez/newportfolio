@@ -12,7 +12,7 @@ const skillGroups = [
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Huawei Cloud', 'Swagger', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Postman', 'VS Code']
+    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Huawei Cloud', 'Swagger', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Postman', 'VS Code', 'AutoPub', 'Meegle']
   },
   {
     title: 'AI Proficiency',

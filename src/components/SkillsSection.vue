@@ -16,7 +16,7 @@ const skillGroups = [
   },
   {
     title: 'Professional Skills',
-    items: ['Project Coordination', 'Requirement Gathering', 'Client Communication', 'UAT Testing', 'Documentation Management', 'Agile Methodologies']
+    items: ['Project Coordination', 'Requirement Gathering', 'Client Communication', 'UAT Testing', 'FAT Testing', 'Documentation Management', 'Agile Methodologies']
   }
 ]
 

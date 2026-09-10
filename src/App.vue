@@ -9,6 +9,7 @@ import ExperienceSection from './components/ExperienceSection.vue'
 import EducationSection from './components/EducationSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import AppFooter from './components/AppFooter.vue'
+import AiChatbot from './components/AiChatbot.vue'
 
 const defaultCode = `const developer = {
   role: 'Frontend Developer',
@@ -49,5 +50,6 @@ const developerData = computed(() => {
       <ContactSection />
     </main>
     <AppFooter />
+    <AiChatbot />
   </div>
 </template>

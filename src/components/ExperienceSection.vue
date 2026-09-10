@@ -64,7 +64,7 @@ const jobs = [
       'Successfully delivered scalable applications across aviation and transportation industries, including Aerovault and ERP System.',
       'Also built the Sapphire Website, Aerostrategies Timesheet Portal, and Sapphire City Website, extending the Sapphire ecosystem across marketing, timesheet management, and blockchain real estate use cases.'
     ],
-    tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'BootstrapVue', 'REST APIs', 'Axios', 'Swagger', 'NodeJS', 'ExpressJS', 'Git', 'Figma'],
+    tech: ['VueJS', 'ReactJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'BootstrapVue', 'REST APIs', 'Axios', 'Swagger', 'NodeJS', 'ExpressJS', 'Git', 'Figma'],
     projects: ['Sapphire Portal', 'Sapphire IFE System', 'ERP System', 'Aerovault', 'Sapphire Website', 'Aerostrategies Timesheet Portal', 'Sapphire City Website']
   },
   {

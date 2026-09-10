@@ -26,6 +26,19 @@ export const projects = [
     highlights: ['Altenar API integration', 'Cross-functional delivery with product and QA']
   },
   {
+    title: 'ArenaPlus Community (v2)',
+    company: 'DigiPlus Interactive Corp.',
+    industries: ['Gaming'],
+    description: 'Contributed to the Community v2 module of ArenaPlus, a social feed feature within the platform supporting posts, hashtags, and follower interactions.',
+    tech: ['VueJS', 'TypeScript', 'Pinia', 'TanStack Query', 'TailwindCSS'],
+    highlights: [
+      'Built the community post binding and hashtag page for desktop view',
+      'Implemented Fans and Following functionality on user profiles',
+      'Built the community profile UI for mobile view, including dark mode fixes',
+      'Fixed forum tab layout and follower-related issues across the module'
+    ]
+  },
+  {
     title: 'ArenaPlus Retail App',
     company: 'DigiPlus Interactive Corp.',
     industries: ['Gaming'],

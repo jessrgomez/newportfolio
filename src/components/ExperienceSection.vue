@@ -11,9 +11,9 @@ const jobs = [
     bullets: [
       'Delivered 20+ frontend enhancements across ArenaPlus Versions 1 and 2, improving user experience and system functionality.',
       "Grew SABA Lite's Altenar API integration into ArenaPlus's broader sportsbook experience — horse and greyhound racing, live-streamed races, and parlay/singles wagering.",
-      'Built the ArenaPlus Loyalty Club end-to-end across desktop and mobile, including tier progression, rank-up UI, and refer-a-friend statistics, alongside SOBOT message notification features.',
+      'Built the ArenaPlus Loyalty Club end-to-end across desktop and mobile, including tier progression, rank-up UI, and refer-a-friend statistics, alongside SOBOT message notification features on both web and the LaroPlus (ArenaPlus v1) mobile app.',
       'Contributed to the ArenaPlus Community v2 module, building the post binding, hashtag, and follower/profile features.',
-      'Worked on LaroPlus Mobile, a separate DigiPlus gaming app, on SOBOT customer service messaging, brand partnership updates, and cross-platform login/verification fixes.',
+      'Shipped brand partnership updates, PAGCOR compliance/betting rules changes, and login/verification fixes across iOS and Android on the LaroPlus mobile app.',
       'Currently building the Transactions module and Altenar sportsbook bet slip experience for ArenaPlus Retail App, a new Vue 3 + TypeScript platform, alongside the frontend team.',
       'Collaborated with 10+ cross-functional teammates across Product, QA, UI/UX, and Backend.',
       'Supported multiple production deployments with minimal downtime while resolving issues and optimizing performance.',
@@ -31,13 +31,14 @@ const jobs = [
       'TanStack Query',
       'TailwindCSS',
       'REST APIs',
+      'Axios',
       'Git',
       'SourceTree',
       'Figma',
       'Cursor AI',
       'Claude AI'
     ],
-    projects: ['Maintenance of Back Office Systems', 'ArenaPlus v1', 'ArenaPlus v2', 'APv2 SABA Lite', 'ArenaPlus Community v2', 'ArenaPlus Retail App', 'LaroPlus Mobile']
+    projects: ['Maintenance of Back Office Systems', 'ArenaPlus v1', 'ArenaPlus v2', 'APv2 SABA Lite', 'ArenaPlus Community v2', 'ArenaPlus Retail App']
   },
   {
     title: 'VueJS Developer',

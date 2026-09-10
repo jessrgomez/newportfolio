@@ -13,11 +13,13 @@ export const projects = [
     title: 'ArenaPlus (v1 & v2)',
     company: 'DigiPlus Interactive Corp.',
     industries: ['Gaming'],
-    description: 'Delivered frontend enhancements across two major versions of ArenaPlus, including the Loyalty Club and SOBOT message notification features.',
-    tech: ['VueJS', 'JavaScript', 'REST APIs', 'Spring Boot', 'MySQL'],
+    description: 'Delivered frontend enhancements across two major versions of ArenaPlus — including its LaroPlus-branded mobile app for v1 — covering the Loyalty Club, SOBOT customer messaging, and more.',
+    tech: ['VueJS', 'TypeScript', 'JavaScript', 'Pinia', 'Vuex', 'Axios', 'Vant', 'REST APIs', 'Spring Boot', 'MySQL'],
     highlights: [
       'Built the Loyalty Club end-to-end across desktop and mobile, including tier progression, rank-up UI, and refer-a-friend statistics via the Loyalty API',
-      'Delivered SOBOT customer message notification features for production users'
+      'Delivered SOBOT customer message notification features across web and the LaroPlus (ArenaPlus v1) mobile app',
+      'Brand partnership updates (e.g. NBA) and PAGCOR compliance/betting rules updates on the mobile app',
+      'Login and verification code fixes across iOS and Android'
     ]
   },
   {
@@ -56,19 +58,6 @@ export const projects = [
       'Building the Transactions module (Casino, Sports, and Promotions history) with status badges, filters, pagination, and detail drawers',
       'Integrating Altenar sportsbook bet slip widgets with selection-count and login-prompt composables',
       'Implementing dark/light theme-aware iconography across the transactions UI'
-    ]
-  },
-  {
-    title: 'LaroPlus Mobile',
-    company: 'DigiPlus Interactive Corp.',
-    industries: ['Gaming'],
-    description: 'Frontend developer on LaroPlus, a separate DigiPlus consumer gaming app, working on customer service messaging, brand partnerships, and cross-platform login/verification flows.',
-    tech: ['VueJS', 'TypeScript', 'Pinia', 'Vuex', 'Axios', 'Vant'],
-    highlights: [
-      'SOBOT customer service proactive messaging integration',
-      'Brand partnership updates (e.g. NBA) across the Partners section',
-      'Login and verification code fixes across iOS and Android',
-      'PAGCOR compliance popup and betting rules updates'
     ]
   },
   {

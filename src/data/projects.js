@@ -13,17 +13,25 @@ export const projects = [
     title: 'ArenaPlus (v1 & v2)',
     company: 'DigiPlus Interactive Corp.',
     industries: ['Gaming'],
-    description: 'Delivered frontend enhancements across two major versions of ArenaPlus, including a Loyalty Module and SOBOT message notification features.',
+    description: 'Delivered frontend enhancements across two major versions of ArenaPlus, including the Loyalty Club and SOBOT message notification features.',
     tech: ['VueJS', 'JavaScript', 'REST APIs', 'Spring Boot', 'MySQL'],
-    highlights: ['Frontend enhancements for Version 1 and Version 2', 'Loyalty and customer notification features']
+    highlights: [
+      'Built the Loyalty Club end-to-end across desktop and mobile, including tier progression, rank-up UI, and refer-a-friend statistics via the Loyalty API',
+      'Delivered SOBOT customer message notification features for production users'
+    ]
   },
   {
-    title: 'SABA Lite',
+    title: 'SABA Lite & Sportsbook (Altenar)',
     company: 'DigiPlus Interactive Corp.',
     industries: ['Gaming'],
-    description: "Successfully delivered SABA Lite's Altenar API integration, connecting the sportsbook platform to real-time odds and betting data.",
+    description: "Delivered SABA Lite's Altenar API integration and grew it into ArenaPlus's broader sportsbook experience, covering horse and greyhound racing, live-streamed races, and parlay/singles wagering.",
     tech: ['VueJS', 'REST APIs', 'Altenar API', 'Git'],
-    highlights: ['Altenar API integration', 'Cross-functional delivery with product and QA']
+    highlights: [
+      'Altenar API integration connecting the sportsbook frontend to live odds and betting data',
+      'Horse and greyhound racing API integration with live-streamed race widgets',
+      'Parlay and singles wagering flows for sportsbook betting',
+      'Cross-functional delivery with product and QA'
+    ]
   },
   {
     title: 'ArenaPlus Community (v2)',
@@ -48,6 +56,19 @@ export const projects = [
       'Building the Transactions module (Casino, Sports, and Promotions history) with status badges, filters, pagination, and detail drawers',
       'Integrating Altenar sportsbook bet slip widgets with selection-count and login-prompt composables',
       'Implementing dark/light theme-aware iconography across the transactions UI'
+    ]
+  },
+  {
+    title: 'LaroPlus Mobile',
+    company: 'DigiPlus Interactive Corp.',
+    industries: ['Gaming'],
+    description: 'Frontend developer on LaroPlus, a separate DigiPlus consumer gaming app, working on customer service messaging, brand partnerships, and cross-platform login/verification flows.',
+    tech: ['VueJS', 'TypeScript', 'Pinia', 'Vuex', 'Axios', 'Vant'],
+    highlights: [
+      'SOBOT customer service proactive messaging integration',
+      'Brand partnership updates (e.g. NBA) across the Partners section',
+      'Login and verification code fixes across iOS and Android',
+      'PAGCOR compliance popup and betting rules updates'
     ]
   },
   {

@@ -69,7 +69,7 @@ const jobs = [
   },
   {
     title: 'Frontend Developer (Part-Time)',
-    company: 'Sentravel Vietnam',
+    company: 'Vietnam',
     logo: 'SV',
     url: '',
     period: 'September 2020 – February 2022',

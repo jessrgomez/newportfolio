@@ -395,6 +395,22 @@ onBeforeUnmount(() => {
   75% { transform: translate(-8px, 8px) rotate(2deg); }
 }
 
+@media (min-width: 769px) {
+  .developer-scene {
+    min-height: 460px;
+  }
+
+  .developer-figure {
+    max-width: 460px;
+    height: 380px;
+  }
+
+  .developer-glow {
+    width: 300px;
+    height: 300px;
+  }
+}
+
 @media (max-width: 768px) {
   .developer-scene {
     min-height: 280px;

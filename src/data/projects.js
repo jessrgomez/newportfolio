@@ -59,24 +59,6 @@ export const projects = [
     highlights: ['Laravel/PHP backend collaboration', 'Testing, deployment, and maintenance']
   },
   {
-    title: 'Sapphire Portal',
-    company: 'Dornier Technology Inc. → Global JD Holdings Inc.',
-    industries: ['Aviation', 'Transportation'],
-    description: 'Led frontend development and project coordination for an enterprise portal, managing requirements and stakeholder communication end-to-end.',
-    tech: ['VueJS', 'BootstrapVue', 'REST APIs', 'MySQL'],
-    highlights: ['Frontend development and project coordination', 'Requirements and stakeholder management'],
-    images: [sapphireAdminImg]
-  },
-  {
-    title: 'Sapphire In-Flight Entertainment System',
-    company: 'Dornier Technology Inc. → Global JD Holdings Inc.',
-    industries: ['Aviation', 'Transportation'],
-    description: 'Built and maintained the frontend for an in-flight entertainment system, coordinating delivery across local and international stakeholders.',
-    tech: ['VueJS', 'JavaScript', 'BootstrapVue'],
-    highlights: ['In-flight entertainment frontend', 'Local and international stakeholder coordination'],
-    images: [sapphireIfeImg]
-  },
-  {
     title: 'Atlas System',
     company: 'Global JD Holdings Inc.',
     industries: ['Aviation', 'Enterprise'],
@@ -123,6 +105,24 @@ export const projects = [
     tech: ['VueJS', 'Bootstrap', 'HTML', 'CSS', 'NodeJS'],
     highlights: ['Membership platform frontend for a blockchain real estate concept'],
     images: [sapphireCityImg]
+  },
+  {
+    title: 'Sapphire Portal',
+    company: 'Dornier Technology Inc. → Global JD Holdings Inc.',
+    industries: ['Aviation', 'Transportation'],
+    description: 'Led frontend development and project coordination for an enterprise portal, managing requirements and stakeholder communication end-to-end.',
+    tech: ['VueJS', 'BootstrapVue', 'REST APIs', 'MySQL'],
+    highlights: ['Frontend development and project coordination', 'Requirements and stakeholder management'],
+    images: [sapphireAdminImg]
+  },
+  {
+    title: 'Sapphire In-Flight Entertainment System',
+    company: 'Dornier Technology Inc. → Global JD Holdings Inc.',
+    industries: ['Aviation', 'Transportation'],
+    description: 'Built and maintained the frontend for an in-flight entertainment system, coordinating delivery across local and international stakeholders.',
+    tech: ['VueJS', 'JavaScript', 'BootstrapVue'],
+    highlights: ['In-flight entertainment frontend', 'Local and international stakeholder coordination'],
+    images: [sapphireIfeImg]
   },
   {
     title: 'Fleet Technical Management System',

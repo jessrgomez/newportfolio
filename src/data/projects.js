@@ -51,6 +51,14 @@ export const projects = [
     ]
   },
   {
+    title: 'VueJS Client Applications',
+    company: 'ThinkBIT Solutions',
+    industries: ['Enterprise'],
+    description: 'Developed and maintained VueJS applications integrated with Laravel/PHP backends, from testing through deployment.',
+    tech: ['VueJS', 'JavaScript', 'PHP', 'Laravel'],
+    highlights: ['Laravel/PHP backend collaboration', 'Testing, deployment, and maintenance']
+  },
+  {
     title: 'Sapphire Portal',
     company: 'Global JD Holdings Inc.',
     industries: ['Aviation', 'Transportation'],
@@ -98,31 +106,6 @@ export const projects = [
     images: [aerovaultImg]
   },
   {
-    title: 'Booking & Reporting Portal',
-    company: 'Sentravel Vietnam',
-    industries: ['Travel'],
-    description: 'Developed booking systems and reporting portals, designing dashboards and data visualizations to improve user experience.',
-    tech: ['VueJS', 'Highcharts', 'JavaScript'],
-    highlights: ['Booking and reporting workflows', 'Dashboards and data visualization'],
-    images: [sentravelBookingImg, sentravelAdminImg]
-  },
-  {
-    title: 'VueJS Client Applications',
-    company: 'ThinkBIT Solutions',
-    industries: ['Enterprise'],
-    description: 'Developed and maintained VueJS applications integrated with Laravel/PHP backends, from testing through deployment.',
-    tech: ['VueJS', 'JavaScript', 'PHP', 'Laravel'],
-    highlights: ['Laravel/PHP backend collaboration', 'Testing, deployment, and maintenance']
-  },
-  {
-    title: 'Hybrid Mobile Application',
-    company: 'Dornier Technology (OJT)',
-    industries: ['Enterprise'],
-    description: 'Built a hybrid mobile application as part of an OJT programmer role, working with Firebase and database management.',
-    tech: ['Ionic', 'Cordova', 'Firebase'],
-    highlights: ['Hybrid mobile development', 'Firebase and database integration']
-  },
-  {
     title: 'Sapphire Website',
     company: 'Global JD Holdings Inc.',
     industries: ['Aviation'],
@@ -148,5 +131,22 @@ export const projects = [
     tech: ['VueJS', 'Bootstrap', 'HTML', 'CSS', 'NodeJS'],
     highlights: ['Membership platform frontend for a blockchain real estate concept'],
     images: [sapphireCityImg]
+  },
+  {
+    title: 'Hybrid Mobile Application',
+    company: 'Dornier Technology (OJT)',
+    industries: ['Enterprise'],
+    description: 'Built a hybrid mobile application as part of an OJT programmer role, working with Firebase and database management.',
+    tech: ['Ionic', 'Cordova', 'Firebase'],
+    highlights: ['Hybrid mobile development', 'Firebase and database integration']
+  },
+  {
+    title: 'Booking & Reporting Portal',
+    company: 'Sentravel Vietnam',
+    industries: ['Travel'],
+    description: 'Developed booking systems and reporting portals, designing dashboards and data visualizations to improve user experience.',
+    tech: ['VueJS', 'Highcharts', 'JavaScript'],
+    highlights: ['Booking and reporting workflows', 'Dashboards and data visualization'],
+    images: [sentravelBookingImg, sentravelAdminImg]
   }
 ]

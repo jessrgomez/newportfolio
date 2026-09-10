@@ -96,7 +96,6 @@ onMounted(async () => {
 
   const canvas = canvasEl.value
   const parent = canvas.parentElement
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   // Resizing dev tools' device emulation (or other GPU hiccups) can trigger a
   // WebGL "context lost" event, which otherwise leaves the canvas permanently
@@ -228,8 +227,6 @@ onMounted(async () => {
     const clock = new THREE.Clock()
     let frameId
 
-    const renderStaticFrame = () => renderer.render(scene, camera)
-
     const animate = () => {
       const elapsed = clock.getElapsedTime()
       rig.rotation.y = Math.sin(elapsed * 0.3) * 0.25 + pointerX * 0.35
@@ -243,11 +240,7 @@ onMounted(async () => {
       frameId = requestAnimationFrame(animate)
     }
 
-    if (reduceMotion) {
-      renderStaticFrame()
-    } else {
-      animate()
-    }
+    animate()
 
     teardown = () => {
       if (frameId) cancelAnimationFrame(frameId)

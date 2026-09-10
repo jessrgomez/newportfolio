@@ -22,13 +22,8 @@ const stats = [
   { value: projects.length, label: 'Projects featured' }
 ]
 const displayValues = ref(stats.map(() => 0))
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 onMounted(() => {
-  if (prefersReducedMotion) {
-    displayValues.value = stats.map((stat) => stat.value)
-    return
-  }
   const duration = 900
   const start = performance.now()
   const tick = (now) => {

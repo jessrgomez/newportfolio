@@ -16,7 +16,8 @@ const jobs = [
       'Currently building the Transactions module and Altenar sportsbook bet slip experience for ArenaPlus Retail App, a new Vue 3 + TypeScript platform, alongside the frontend team.',
       'Collaborated with 10+ cross-functional teammates across Product, QA, UI/UX, and Backend.',
       'Supported multiple production deployments with minimal downtime while resolving issues and optimizing performance.',
-      'Collaborated with backend developers using Spring Boot and MySQL.'
+      'Collaborated with backend developers using Spring Boot and MySQL.',
+      'Use Claude AI and Cursor AI daily for development, defining project-specific rules and guardrails in markdown config files (e.g., CLAUDE.md) to guide code style, safe automation boundaries, and consistent behavior across the codebase.'
     ],
     tech: [
       'VueJS',

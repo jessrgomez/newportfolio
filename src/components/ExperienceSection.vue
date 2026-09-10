@@ -94,7 +94,7 @@ const jobs = [
       'Developed reusable frontend components to improve development efficiency.',
       'Maintained OJT records and attendance.'
     ],
-    tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'REST APIs', 'Git'],
+    tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'REST APIs', 'NodeJS', 'Swagger', 'Git', 'Figma'],
     projects: ['Sapphire IFE System', 'Sapphire Portal', 'Fleet Technical Management System']
   }
 ]

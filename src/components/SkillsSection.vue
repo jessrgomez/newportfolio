@@ -8,7 +8,7 @@ const skillGroups = [
   },
   {
     title: 'Backend & Integration',
-    items: ['REST APIs', 'Axios', 'Pinia', 'TanStack Query', 'NodeJS', 'PHP', 'MySQL']
+    items: ['REST APIs', 'Axios', 'Pinia', 'TanStack Query', 'NodeJS', 'ExpressJS', 'PHP', 'MySQL']
   },
   {
     title: 'Tools',

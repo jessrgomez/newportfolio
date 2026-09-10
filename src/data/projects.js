@@ -4,13 +4,9 @@ import sentravelBookingImg from '../assets/projects/sentravel-booking.jpg'
 import sentravelAdminImg from '../assets/projects/sentravel-admin.jpg'
 import atlasImg from '../assets/projects/atlas.png'
 import aerovaultImg from '../assets/projects/aerovault.png'
-import hauworkitImg from '../assets/projects/hauworkit.png'
 import sapphireWebsiteImg from '../assets/projects/sapphire-website.jpg'
 import aerostrategiesImg from '../assets/projects/aerostrategies-timesheet.jpg'
 import sapphireCityImg from '../assets/projects/sapphire-city.jpg'
-import cictPosterImg from '../assets/projects/cict-poster.jpg'
-import cictShirtImg from '../assets/projects/cict-shirt.jpg'
-import pdgShirtImg from '../assets/projects/pdg-shirt.jpg'
 import gameDevImg from '../assets/projects/game-dev-project.jpg'
 
 export const projects = [
@@ -115,15 +111,6 @@ export const projects = [
     highlights: ['Hybrid mobile development', 'Firebase and database integration']
   },
   {
-    title: 'HAUworkit',
-    company: 'Holy Angel University (Capstone Project)',
-    industries: ['Education'],
-    description: 'Developed a web-based decision support system matching Holy Angel University students with job postings from partner companies through the Career and Placement Office.',
-    tech: ['Laravel', 'PHP', 'jQuery', 'Bootstrap', 'MySQL'],
-    highlights: ['Skill-matching engine between student profiles and job postings', 'Dedicated portals for students, employers, and the Career and Placement Office'],
-    images: [hauworkitImg]
-  },
-  {
     title: 'Sapphire Website',
     company: 'Dornier Technology Inc.',
     industries: ['Aviation'],
@@ -149,33 +136,6 @@ export const projects = [
     tech: ['VueJS', 'Bootstrap', 'HTML', 'CSS', 'NodeJS'],
     highlights: ['Membership platform frontend for a blockchain real estate concept'],
     images: [sapphireCityImg]
-  },
-  {
-    title: 'CICT: Offer IT Up Poster',
-    company: 'Holy Angel University',
-    industries: ['Design'],
-    description: 'Designed a promotional poster as a member of the Creative Multimedia Team for the College of Information and Communications Technology.',
-    tech: ['Graphic Design'],
-    highlights: ['Creative Multimedia Team contribution for CICT'],
-    images: [cictPosterImg]
-  },
-  {
-    title: 'CICT: Shirt Design',
-    company: 'Holy Angel University',
-    industries: ['Design'],
-    description: 'Submitted a shirt design entry themed "Allegiance" for a College of Information and Communications Technology design contest.',
-    tech: ['Graphic Design'],
-    highlights: ['Contest entry open to all CICT students'],
-    images: [cictShirtImg]
-  },
-  {
-    title: 'PDG: Shirt Design',
-    company: 'Pampanga Developers Group',
-    industries: ['Design'],
-    description: 'Submitted a shirt design entry themed "Modern Innovative Tech" for a Pampanga Developers Group community contest.',
-    tech: ['Graphic Design'],
-    highlights: ['Community design contest entry for Pampanga Developers Group'],
-    images: [pdgShirtImg]
   },
   {
     title: 'Game Dev Project',

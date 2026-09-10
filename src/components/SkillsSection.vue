@@ -12,7 +12,11 @@ const skillGroups = [
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Huawei Cloud', 'Swagger', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Cursor AI', 'Claude AI', 'Postman', 'VS Code']
+    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Huawei Cloud', 'Swagger', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Postman', 'VS Code']
+  },
+  {
+    title: 'AI Proficiency',
+    items: ['Claude AI', 'Cursor AI', 'Prompt Engineering', 'AI-Assisted Development', 'AI Pair Programming']
   },
   {
     title: 'Professional Skills',

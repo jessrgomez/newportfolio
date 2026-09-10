@@ -60,7 +60,7 @@ export const projects = [
   },
   {
     title: 'Sapphire Portal',
-    company: 'Global JD Holdings Inc.',
+    company: 'Dornier Technology Inc. → Global JD Holdings Inc.',
     industries: ['Aviation', 'Transportation'],
     description: 'Led frontend development and project coordination for an enterprise portal, managing requirements and stakeholder communication end-to-end.',
     tech: ['VueJS', 'BootstrapVue', 'REST APIs', 'MySQL'],
@@ -69,7 +69,7 @@ export const projects = [
   },
   {
     title: 'Sapphire In-Flight Entertainment System',
-    company: 'Global JD Holdings Inc.',
+    company: 'Dornier Technology Inc. → Global JD Holdings Inc.',
     industries: ['Aviation', 'Transportation'],
     description: 'Built and maintained the frontend for an in-flight entertainment system, coordinating delivery across local and international stakeholders.',
     tech: ['VueJS', 'JavaScript', 'BootstrapVue'],

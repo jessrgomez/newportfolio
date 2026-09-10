@@ -142,7 +142,7 @@ export const projects = [
   },
   {
     title: 'Sapphire City Website',
-    company: 'Dornier Technology Inc.',
+    company: 'Global JD Holdings Inc.',
     industries: ['Enterprise'],
     description: 'Built the frontend for a blockchain-based real estate membership platform under the Sapphire brand.',
     tech: ['VueJS', 'Bootstrap', 'HTML', 'CSS', 'NodeJS'],

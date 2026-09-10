@@ -557,6 +557,7 @@ textarea {
   border: none;
   outline: none;
   resize: none;
+  overflow: hidden;
   background: transparent;
   color: var(--text-primary);
   font-family: inherit;

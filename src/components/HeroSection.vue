@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useAnimateOnScroll } from '../composables/useAnimateOnScroll'
 import { scrollToSection } from '../utils/scroll'
 import { projects } from '../data/projects.js'
@@ -24,7 +24,25 @@ const stats = [
 const displayValues = ref(stats.map(() => 0))
 const statsDone = ref(false)
 
+const codeEditor = ref(null)
+
+const fitCodeEditor = () => {
+  const el = codeEditor.value
+  if (!el) return
+  el.style.height = 'auto'
+  el.style.height = `${el.scrollHeight}px`
+}
+
+watch(code, () => nextTick(fitCodeEditor))
+
+onUnmounted(() => {
+  window.removeEventListener('resize', fitCodeEditor)
+})
+
 onMounted(() => {
+  fitCodeEditor()
+  window.addEventListener('resize', fitCodeEditor)
+
   const duration = 900
   const start = performance.now()
   const tick = (now) => {
@@ -79,6 +97,7 @@ onMounted(() => {
         <label class="sr-only" for="developer-profile-code">Edit Jessica's developer profile code</label>
         <textarea
           id="developer-profile-code"
+          ref="codeEditor"
           v-model="code"
           class="code-editable"
           spellcheck="false"

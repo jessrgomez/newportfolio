@@ -86,14 +86,6 @@ export const projects = [
     images: [atlasImg]
   },
   {
-    title: 'Fleet Technical Management System',
-    company: 'Global JD Holdings Inc.',
-    industries: ['Aviation'],
-    description: 'Developed frontend features for a fleet technical management platform used to track maintenance and operational data.',
-    tech: ['VueJS', 'REST APIs', 'MySQL'],
-    highlights: ['Maintenance tracking features', 'Operational data workflows']
-  },
-  {
     title: 'Aerovault Tracking System (ATS)',
     company: 'Global JD Holdings Inc.',
     industries: ['Aviation'],
@@ -131,6 +123,14 @@ export const projects = [
     tech: ['VueJS', 'Bootstrap', 'HTML', 'CSS', 'NodeJS'],
     highlights: ['Membership platform frontend for a blockchain real estate concept'],
     images: [sapphireCityImg]
+  },
+  {
+    title: 'Fleet Technical Management System',
+    company: 'Dornier Technology Inc.',
+    industries: ['Aviation'],
+    description: 'Developed frontend features for a fleet technical management platform used to track maintenance and operational data.',
+    tech: ['VueJS', 'REST APIs', 'MySQL'],
+    highlights: ['Maintenance tracking features', 'Operational data workflows']
   },
   {
     title: 'Hybrid Mobile Application',

@@ -4,7 +4,7 @@ import { useAnimateOnScroll } from '../composables/useAnimateOnScroll'
 const skillGroups = [
   {
     title: 'Frontend',
-    items: ['VueJS (Vue2 & Vue3)', 'ReactJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'BootstrapVue', 'TailwindCSS', 'Material UI', 'Highcharts', 'Storybook', 'WebSocket']
+    items: ['VueJS (Vue2 & Vue3)', 'ReactJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'BootstrapVue', 'TailwindCSS', 'Material UI', 'Highcharts', 'Storybook', 'WebSocket', 'NPM', 'Vite']
   },
   {
     title: 'Backend & Integration',
@@ -12,7 +12,7 @@ const skillGroups = [
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Huawei Cloud', 'Swagger', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Cursor AI', 'Claude AI', 'Postman', 'NPM', 'Vite', 'VS Code']
+    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket', 'Huawei Cloud', 'Swagger', 'Jira', 'Trello', 'SourceTree', 'Figma', 'Cursor AI', 'Claude AI', 'Postman', 'VS Code']
   },
   {
     title: 'Professional Skills',

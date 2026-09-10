@@ -141,8 +141,8 @@ export const projects = [
     highlights: ['Hybrid mobile development', 'Firebase and database integration']
   },
   {
-    title: 'Booking & Reporting Portal',
-    company: 'Sentravel Vietnam',
+    title: 'Sentravel: Booking System and Ancillary Revenue Portal',
+    company: 'Vietnam',
     industries: ['Travel'],
     description: 'Developed booking systems and reporting portals, designing dashboards and data visualizations to improve user experience.',
     tech: ['VueJS', 'Highcharts', 'JavaScript'],

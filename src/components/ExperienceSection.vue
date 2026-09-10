@@ -47,7 +47,7 @@ const jobs = [
       'Integrated frontend features with Laravel/PHP backends through REST API collaboration.',
       'Supported testing, troubleshooting, deployment, and ongoing maintenance across multiple releases.'
     ],
-    tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'REST APIs', 'Git'],
+    tech: ['VueJS', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Laravel', 'PHP', 'REST APIs', 'Git', 'Figma'],
     projects: ['Bingo Pilipino']
   },
   {
